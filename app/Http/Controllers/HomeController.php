@@ -61,7 +61,7 @@ class HomeController extends Controller
         $estimated_krw = $real_btc_send_jp_to_kr * $one_btc_kr_price;
         $estimated_jpy = $estimated_krw / $one_jp_won_at_real;
         $bank_fee_kr_to_jp = $this->get_bank_sending_fee_kr_to_jp($estimated_krw);
-        $recieve_jp_fee = 4000;
+        $recieve_jp_fee = 2450;
         $bank_fee_kr_to_jp_at_jpy = ($bank_fee_kr_to_jp / $one_jp_won_at_real) + $recieve_jp_fee; //1
         $final_jpy = $estimated_krw / $one_jp_won_at_real - $bank_fee_kr_to_jp_at_jpy;
         $gap = $final_jpy -  ($one_btc_jp_price * $send_btc_amount);
@@ -70,6 +70,7 @@ class HomeController extends Controller
         $data['one_jpy_to_btc_to_krw'] = floatval($one_jpy_to_btc_to_krw);
         $data['one_jp_won_at_real'] = $one_jp_won_at_real;
         $data['one_btc_jpy_to_krw_at_real'] = $one_btc_jpy_to_krw_at_real;
+        $data['send_btc_amount'] = $send_btc_amount;
         $data['btc_fee_jp_to_kr'] = $btc_fee_jp_to_kr;
         $data['real_btc_send_jp_to_kr'] = $real_btc_send_jp_to_kr;
         $data['estimated_krw'] = $estimated_krw;
