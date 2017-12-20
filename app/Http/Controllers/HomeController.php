@@ -53,7 +53,7 @@ class HomeController extends Controller
         $one_btc_kr_price = $this->get_price_from_bithumb_api($btc_kr_body);
         $one_jpy_to_btc_to_krw = $one_btc_kr_price / $one_btc_jp_price ;
         $one_btc_jpy_to_krw_at_real = $one_btc_jp_price * $one_jp_won_at_real;
-        $send_btc_amount = 0.5;
+        $send_btc_amount = 1;
         $send_btc_amount = $send_btc_amount - ($send_btc_amount * (0.15 /100)); //BTC
         $btc_fee_jp_to_kr = $this->get_btc_sending_fee_jp_to_kr($send_btc_amount);
         $real_btc_send_jp_to_kr = $send_btc_amount - $btc_fee_jp_to_kr;
