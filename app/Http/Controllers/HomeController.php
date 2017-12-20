@@ -80,30 +80,8 @@ class HomeController extends Controller
         $data['final_jpy'] = $final_jpy;
         $data['gap'] = $gap;
 
-        $trail = new Trail;
-	$trail->jp_price=$data['jp_price'];
-	$trail->kr_price=$data['kr_price'];
-	$trail->one_jpy_to_btc_to_krw=$data['one_jpy_to_btc_to_krw'];
-	$trail->one_jp_won_at_real=$data['one_jp_won_at_real'];
-	$trail->one_btc_jpy_to_krw_at_real=$data['one_btc_jpy_to_krw_at_real'];
-	$trail->btc_fee_jp_to_kr=$data['btc_fee_jp_to_kr'];
-	$trail->real_btc_send_jp_to_kr=$data['real_btc_send_jp_to_kr'];
-	$trail->estimated_krw=$data['estimated_krw'];
-	$trail->estimated_jpy=$data['estimated_jpy'];
-	$trail->bank_fee_kr_to_jp=$data['bank_fee_kr_to_jp'];
-	$trail->recieve_jp_fee=$data['recieve_jp_fee'];
-	$trail->bank_fee_kr_to_jp_at_jpy=$data['bank_fee_kr_to_jp_at_jpy'];
-	$trail->final_jpy=$data['final_jpy'];
-	$trail->gap=$data['gap'];
-        
-        $trail->save();	
+        $trail = Trail::all();
 
-
-
-//        $mailer = new MailgunMailer();
-//        $mailer->build();
-//        Mail::to('cloz2me@gmail.com')
-//            ->send($mailer);
 
         return view('home', $data);
     }
