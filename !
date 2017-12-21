@@ -76,12 +76,12 @@
                                     {{number_format($send_btc_amount, 2)}}
                                 </td>
                             </tr>
-			    <tr>
+                            <tr>
 				<th>
-					BTC price jp
+					BTC price yen
 				</th>
 				<td>
-					{{number_format($send_btc_price)}}
+				    {{number_format($price_for_btc)}}
 				</td>
 			    </tr>
 <!--

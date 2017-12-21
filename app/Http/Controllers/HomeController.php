@@ -34,8 +34,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+	if ($request->isMethod('get')) {
+		$send_btc_amount = 1;
+	} else if ($request->isMethod('post')){
+		$send_btc_amount = $request->input('send_btc_amount');
+	}
+	
 
         $client = new Client();
         $btc_jp_api_response = $client->request('GET', self::BTC_JP_API_URL);
@@ -53,7 +60,6 @@ class HomeController extends Controller
         $one_btc_kr_price = $this->get_price_from_bithumb_api($btc_kr_body);
         $one_jpy_to_btc_to_krw = $one_btc_kr_price / $one_btc_jp_price ;
         $one_btc_jpy_to_krw_at_real = $one_btc_jp_price * $one_jp_won_at_real;
-        $send_btc_amount = 1;
         $send_btc_amount = $send_btc_amount - ($send_btc_amount * (0.15 /100)); //BTC
         $btc_fee_jp_to_kr = $this->get_btc_sending_fee_jp_to_kr($send_btc_amount);
         $real_btc_send_jp_to_kr = $send_btc_amount - $btc_fee_jp_to_kr;
@@ -71,6 +77,7 @@ class HomeController extends Controller
         $data['one_jp_won_at_real'] = $one_jp_won_at_real;
         $data['one_btc_jpy_to_krw_at_real'] = $one_btc_jpy_to_krw_at_real;
         $data['send_btc_amount'] = $send_btc_amount;
+	$data['send_btc_price'] = $one_btc_jp_price * $send_btc_amount;
         $data['btc_fee_jp_to_kr'] = $btc_fee_jp_to_kr;
         $data['real_btc_send_jp_to_kr'] = $real_btc_send_jp_to_kr;
         $data['estimated_krw'] = $estimated_krw;
