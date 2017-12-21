@@ -37,70 +37,24 @@
 		var config = {
 			type: 'line',
 			data: {
-				labels: [ // Date Objects
-					newDate(0),
-					newDate(1),
-					newDate(2),
-					newDate(3),
-					newDate(4),
-					newDate(5),
-					newDate(6)
-				],
+				labels: {{$times}},
 				datasets: [{
-					label: "My First dataset",
+					label: "Kimch Premium Chart",
 					backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
 					borderColor: window.chartColors.red,
 					fill: false,
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
-					],
-				}
-/*                              , {
-					label: "My Second dataset",
-					backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-					borderColor: window.chartColors.blue,
-					fill: false,
-					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
-					],
-				}, {
-					label: "Dataset with point data",
-					backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
-					borderColor: window.chartColors.green,
-					fill: false,
-					data: [{
-						x: newDateString(0),
-						y: randomScalingFactor()
-					}, {
-						x: newDateString(5),
-						y: randomScalingFactor()
-					}, {
-						x: newDateString(7),
-						y: randomScalingFactor()
-					}, {
-						x: newDateString(15),
-						y: randomScalingFactor()
-					}],
-				}
-*/
-]
+					data: {{$margins}},
+				}]
 			},
 			options: {
-                title:{
-                    text: "Chart.js Time Scale"
-                },
+		                elements:{
+                			line:{
+			                        tension:0,
+                    			}
+	 	                },
+                		title:{
+		                    text: "Chart.js Time Scale"
+                		},
 				scales: {
 					xAxes: [{
 						type: "time",
