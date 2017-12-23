@@ -19,6 +19,7 @@ class GetPrice extends Command
     const ETH_JP_API_URL = 'https://api.zaif.jp/api/1/last_price/eth_jpy';
     const ETH_KR_API_URL = 'https://api.bithumb.com/public/ticker/ETH';
     const REAL_CURRENCY_CONVERTER = 'http://www.xe.com/currencyconverter/convert/?Amount=1&From=JPY&To=KRW';
+    const NOTIFY_GAP = 200000;
 
     /**
      * The name and signature of the console command.
@@ -115,7 +116,7 @@ class GetPrice extends Command
 	$now = new Carbon();
 	$notified_in_hour = Notified::where('notified', '>', $now->subHour())->first();
 
-	if (!isset($notified_in_hour) && $trail->gap > 90000) {
+	if (!isset($notified_in_hour) && $trail->gap > self::NOTIFY_GAP) {
 		$mailer = new MailgunMailer($trail);
 		$mailer->build();
 		Mail::to('cloz2me@gmail.com')->send($mailer);
