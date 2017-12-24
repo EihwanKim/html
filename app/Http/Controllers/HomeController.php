@@ -37,12 +37,10 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-	if ($request->isMethod('get')) {
-		$send_btc_amount = 1;
-	} else if ($request->isMethod('post')){
-		$send_btc_amount = $request->input('send_btc_amount');
-	}
-	
+        $send_btc_amount = $request->input('send_btc_amount');
+        if (!isset($send_btc_amount)) {
+            $send_btc_amount = 1;
+        }
 
         $client = new Client();
         $btc_jp_api_response = $client->request('GET', self::BTC_JP_API_URL);

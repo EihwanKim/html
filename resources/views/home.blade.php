@@ -11,7 +11,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-			<form class="form-horizontal" method="POST" action="{{ route('home') }}">
+			<form class="form-horizontal" method="GET" action="{{ route('home') }}">
 				{{ csrf_field() }}
 				<div class="form-group{{ $errors->has('send_btc_amount') ? ' has-error' : '' }}">
 					<label for="email" class="col-md-4 control-label">送るBTC量</label>

@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home', 'HomeController@index')->name('home');
 Route::get('/chart', 'ChartController@index')->name('chart');
 
 Route::get('/test', 'TestController@index')->name('test');
