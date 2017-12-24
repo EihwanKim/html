@@ -55,9 +55,9 @@ canvas {
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a href="{{ route('home') }}">Login</a></li>
-                            <li><a href="{{ route('chart') }}">Login</a></li>
-                            <li><a href="{{ route('test') }}">Login</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
+                            <li><a href="{{ route('chart') }}">Chart</a></li>
+                            <li><a href="{{ route('test') }}">Test</a></li>
 <!--
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
