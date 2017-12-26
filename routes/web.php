@@ -19,6 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/chart', 'ChartController@index')->name('chart');
-
 Route::get('/test', 'TestController@index')->name('test');
-
+Route::get('/bithumb', 'BithumbController@index')->name('bithumb');

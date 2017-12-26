@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class TestController extends Controller
 {
 	const coin_names = ['BTC','ETH', 'ETC', 'XMR', 'XRP', 'LTC', 'DASH', 'BCH'];
