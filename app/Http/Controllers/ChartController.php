@@ -29,8 +29,6 @@ class ChartController extends Controller
 			array_push($time, Carbon::createFromFormat('Y-m-d H:i:s', $val->created_at)->timestamp);
 			array_push($margin, intval($val->gap));
 		}
-//print_r($time);
-//print_r($margin);
 		$data['times'] = json_encode($time);
 		$data['margins'] = json_encode($margin);
 		return view('chart', $data); 

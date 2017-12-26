@@ -31,7 +31,7 @@
 			@foreach ($data as $key => $value)
 				<tr>
 					<td>
-						{{$key}}
+						<a href="{{route('simulation', $key)}}"> {{$key}}</a>
 					</td>
 					<td>
 						{{$value['price_kr']}}

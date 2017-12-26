@@ -21,18 +21,18 @@
 	<script>
 		var timeFormat = 'MM/DD/YYYY HH:mm';
 
-		function newDate(days) {
-			return moment().add(days, 'd').toDate();
-		}
-
-		function newDateString(days) {
-			return moment().add(days, 'd').format(timeFormat);
-		}
-
-		function newTimestamp(days) {
-			return moment().add(days, 'd').unix();
-		}
-
+//		function newDate(days) {
+//			return moment().add(days, 'd').toDate();
+//		}
+//
+//		function newDateString(days) {
+//			return moment().add(days, 'd').format(timeFormat);
+//		}
+//
+//		function newTimestamp(days) {
+//			return moment().add(days, 'd').unix();
+//		}
+console.log({{$times}});
 		var color = Chart.helpers.color;
 		var config = {
 			type: 'line',
