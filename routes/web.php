@@ -22,5 +22,5 @@ Route::get('/chart', 'ChartController@index')->name('chart');
 
 Route::get('/test', 'TestController@index')->name('test');
 Route::get('/simulation/{coin_name}', 'SimulationController@index')->name('simulation');
-Route::get('/line', 'LineController@index')->name('line');
+Route::get('/line_push', 'LineController@push')->name('line_push');
 Route::get('/bithumb', 'BithumbController@index')->name('bithumb');
